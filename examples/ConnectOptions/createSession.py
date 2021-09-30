@@ -8,7 +8,7 @@ from vmware.vapi.stdlib.client.factories import StubConfigurationFactory
 from listStorageConsumption import listStorageConsumption
 import urllib3
 
-def createSession():
+def createSession(ip, user, pwd):
     # Create a session object in the client.
     session = requests.Session()
 
@@ -16,11 +16,11 @@ def createSession():
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
     # Create a connection for the session.
-    vapi_url = 'https://' + 'IP' + '/api'
+    vapi_url = 'https://' + ip + '/api'
     connector = get_requests_connector(session=session, url=vapi_url)
 
     # Add username/password security context to the connector.
-    basic_context = create_user_password_security_context('USER', 'PWD')
+    basic_context = create_user_password_security_context(user, pwd)
     connector.set_security_context(basic_context)
 
     # Create a stub configuration by using the username-password security context.
