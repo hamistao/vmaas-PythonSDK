@@ -1,4 +1,3 @@
-# PDF
 import requests
 from com.vmware.cis_client import Session
 from vmware.vapi.lib.connect import get_requests_connector
