@@ -1,10 +1,10 @@
 from vconnector.core import VConnector
+import pyVmomi
 
 client = VConnector(
-     user='root',
+     user='user',
      pwd='pwd',
-     #host='host51.br.rdlabs.hpecorp.net'
-     host='IP'
+     host='ip'
 )
 
 client.connect()
@@ -19,6 +19,5 @@ host = client.get_object_by_property(
     )
 
 print(host.name)
-
 
 client.disconnect()

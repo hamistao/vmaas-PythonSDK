@@ -1,13 +1,13 @@
 import requests
+import urllib3
 from com.vmware.cis_client import Session
 from vmware.vapi.lib.connect import get_requests_connector
 from vmware.vapi.security.session import create_session_security_context
 from vmware.vapi.security.user_password import create_user_password_security_context
 from vmware.vapi.stdlib.client.factories import StubConfigurationFactory
-from listStorageConsumption import listStorageConsumption
-import urllib3
+from createSessionOperations.listStorageConsumption import listStorageConsumption
 
-def createSession(ip, user, pwd):
+def createSession(vcip, user, pwd):
     # Create a session object in the client.
     session = requests.Session()
 
@@ -15,7 +15,7 @@ def createSession(ip, user, pwd):
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
     # Create a connection for the session.
-    vapi_url = 'https://' + ip + '/api'
+    vapi_url = 'https://' + vcip + '/api'
     connector = get_requests_connector(session=session, url=vapi_url)
 
     # Add username/password security context to the connector.
@@ -38,4 +38,4 @@ def createSession(ip, user, pwd):
     my_stub_config.connector.set_security_context(session_id_context)
     return my_stub_config
 
-listStorageConsumption(createSession())
+listStorageConsumption(createSession('ip', 'user', 'pwd'))
