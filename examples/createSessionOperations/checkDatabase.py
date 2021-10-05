@@ -1,4 +1,3 @@
-# PDF
 from com.vmware import appliance_client
 import datetime
 

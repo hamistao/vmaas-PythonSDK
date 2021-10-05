@@ -5,8 +5,8 @@ import ssl
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
-si = SmartConnect(host='10.141.42.51', user='Administrator@vsphere.local', pwd='HPE@vmaas1', sslContext=ctx)
-# si = SmartConnect(host='10.141.42.51', user='Administrator@vsphere.local', pwd='HPE@vmaas1', port=443, sslContext=ctx)
+si = SmartConnect(host='vcip', user='user', pwd='pwd', sslContext=ctx)
+# si = SmartConnect(host='vcip', user='user', pwd='pwd', port=443, sslContext=ctx)
 
 datacenter = si.content.rootFolder.childEntity[0]
 # datacenter = si.RetrieveContent().rootFolder.childEntity[0]

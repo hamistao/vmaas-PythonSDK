@@ -1,4 +1,3 @@
-# PDF
 from com.vmware.appliance import health_client
 
 # Function to request the overall system health indicator for vCenter Server and the overall health indicator for management services.

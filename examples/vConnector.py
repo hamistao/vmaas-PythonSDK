@@ -4,7 +4,7 @@ import pyVmomi
 client = VConnector(
      user='user',
      pwd='pwd',
-     host='ip'
+     host='vcip'
 )
 
 client.connect()

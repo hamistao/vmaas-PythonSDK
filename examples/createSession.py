@@ -6,6 +6,8 @@ from vmware.vapi.security.session import create_session_security_context
 from vmware.vapi.security.user_password import create_user_password_security_context
 from vmware.vapi.stdlib.client.factories import StubConfigurationFactory
 from createSessionOperations.listStorageConsumption import listStorageConsumption
+from createSessionOperations.healthChecker import healthChecker
+from createSessionOperations.checkDatabase import checkDatabase
 
 def createSession(vcip, user, pwd):
     # Create a session object in the client.
@@ -38,4 +40,6 @@ def createSession(vcip, user, pwd):
     my_stub_config.connector.set_security_context(session_id_context)
     return my_stub_config
 
-listStorageConsumption(createSession('ip', 'user', 'pwd'))
+conf = createSession('vcip', 'user', 'pwd')
+
+listStorageConsumption(conf)
